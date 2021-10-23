@@ -1,0 +1,42 @@
+About Database and collections:
+	We'll have two database, pertaining main objective
+	1: Database which will store High Tension Data
+	2: Database which will store Low Tension Data
+
+	"HT & LT Databases"
+
+Collection: 
+	HT :	sensors
+			readings
+	Sensors will be divided into two, master node and sensor node
+	all master nodes are just sensors with added functionality
+
+	But for HT most of the sensors will be masters, depending on the strategy preferred and particular sensor location
+
+	example of readings collection 
+	{
+		"_id" : ObjectId("60c0d44894c10494260da31e"),
+		"source" : "kitp-123",
+		# "voltage" : {phase1: 223, phase2: 230, phase3: 220} ,
+		"current" : {L1: 400, L2: 403, L3: 402},
+		"ts" : ISODate("2021-05-20T10:24:51.303Z")
+	}
+
+	Eaxample of sensors collection
+	{
+		"_id" : ObjectId("60c0d44894c10494920da3op"),
+		"name" : "kitp-123",
+		"area_name": "kitopeni",
+		"type": "sensor", // master or sensor
+		"location": [32.872735723718374, 43.82397523678],
+		"readings_ref" : ObjectId("60c0d44894c10494260da31e")
+	}
+
+
+	LT:	sensors
+		readings
+	Sensors here are similar to those on HT but with added parameters especially for those master nodes
+	Most of the sensors in LT will just be sensor nodes with fewer master node
+		
+
+	
